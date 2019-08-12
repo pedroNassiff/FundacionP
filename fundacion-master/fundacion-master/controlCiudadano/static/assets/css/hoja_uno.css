@@ -1,0 +1,34 @@
+body {
+  font-size: 20px;
+  color: #212529;
+  font-family: Lora,Times New Roman,serif;
+}
+
+
+
+a:focus, a:hover {
+  color: #d7261b;
+}
+
+a:focus, a:hover {
+  color: #77ec02;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: rgb(170,114,255)!important;
+  border-color: #00657b!important;
+}
+
+
+.page-title, .post-title, .post-subtitle, .post-meta, .post-subheading  {
+  font-family: BloggerSans-Medium;
+}
+
+
+@font-face {
+    font-family: 'BloggerSans-Medium';
+    src: url(/static/assets/fonts/BloggerSans-Medium.ttf);
+    font-style: normal;
+    font-weight: 100;
+}

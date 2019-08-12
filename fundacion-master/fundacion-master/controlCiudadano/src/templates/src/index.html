@@ -1,0 +1,42 @@
+{% extends 'src/base.html' %}
+{%block title%}Inicio{%endblock%}
+{%block content%}
+<header class="masthead" style="background-color: rgb(58,6,102);margin-bottom: 5px;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="site-heading" style="padding-bottom: 80px;">
+                        <div data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+                            <h1 class="page-title" >Práctica Ciudadana</h1>
+                        </div>
+                        <img class="d-none" src="assets/img/logolila.png" style="margin-top: 90px;height: 100px;"></div>
+                </div>
+            </div>
+        </div>
+</header>
+<hr style="background-color: rgb(58,6,102);height: 25px;margin-top: 0px;">
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8">
+            {% for publicacion in publicaciones %}
+                <div  data-aos="fade-up" data-aos-once="true" class="post-preview">
+                    <a href="{% url 'detail' publicacion.id  %}">
+                        <h2 id="hola" class="post-title">{{ publicacion.titulo }}</h2>
+                        <h3 class="post-subtitle">{{ publicacion.fechaHoraPublicacion }}</h3>
+                    </a>
+                    <p class="post-meta">Publicado por &nbsp;<a href="#">Practica Ciudadana</a></p>
+                </div>
+                <hr>
+            {% endfor %}
+
+            <div class="clearfix">
+                <a href="{% url 'publicaciones' %}">
+                    <button class="btn btn-primary float-right" type="button" style="background-color: rgb(58,6,102);">VER TODOS ⇒</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{%endblock%}

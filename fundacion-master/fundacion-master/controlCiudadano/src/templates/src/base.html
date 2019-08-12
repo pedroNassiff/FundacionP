@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NRBCKJZ');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="google-site-verification" content="LpdFHrmhOZtTX7Fx7VmHzjfBDbNtRtr_QOdvVY7T2JQ" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{%block title%}{%endblock%}</title>
+    <link href="{% static "assets/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/fonts/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/fonts/ionicons.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/Article-Clean.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/Login-Form-Clean.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/Login-Form-Dark.css" %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="{% static "/assets/img/cubo.ico" %}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="{% static "assets/css/hoja_uno.css" %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRBCKJZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav" style="background-color: #ffffff;font-family: 'Open Sans', sans-serif;">
+        <div class="container"><a class="navbar-brand" href="{% url 'index' %}" style="color: rgb(58,6,102);"><img src="{%static "assets/img/logo.png"%}" style="width: 107px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div  class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'publicaciones' %}" style="color: rgb(8,170,49);">PUBLICACIONES</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'us' %}" style="color: rgb(8,170,49);">SOBRE NOSOTROS</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'contact' %}" style="color: rgb(8,170,49);">CONTACTANOS</a></li>
+                    {% if user.is_authenticated%}
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'create' %}" style="color: rgb(8,170,49);">CREAR ARTICULO</a></li>
+                    {% endif %}
+                    <!-- <li class="nav-item dropdown">
+                      <a class="nav-link" style="color: rgb(8,170,49);" role="presentation" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Acciones
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">CREAR POST</a>
+                        <a class="dropdown-item" href="#">VER POSTS</a>
+                      </div>
+                    </li> -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'logout' %}" style="color: rgb(8,170,49);">LOGOUT</a></li>
+                    {% else %}
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'login'  %}" style="color: rgb(8,170,49);">LOGIN</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {%block content%}
+    {%endblock%}
+    <footer style="background-color: rgb(35,0,64);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <a href="https://twitter.com/PracticaC">
+                                <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x" style="color: rgb(90,40,166);"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></li></a>
+                        <a href="https://web.facebook.com/Fundaci%C3%B3n-Practica-Ciudadana-1426393220838882/">
+                            <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x" style="color: rgb(90,40,166);"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></li>
+                        </a>
+                        <a href="https://www.instagram.com/practica.ciudadana/?hl=es-la">
+                            <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x" style="color: rgb(90,40,166);"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></li>
+                        </a>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Xeracto 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <link href="{% static "assets/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+    <script src="{% static "assets/js/jquery.min.js" %}"></script>
+    <script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/js/clean-blog.js" %}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+       AOS.init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends 'src/base.html' %}
+{% load static %}
+{%block title%}Publicaciones{%endblock%}
+{%block content%}
+<header class="masthead" style="background-color: rgb(58,6,102);margin-bottom: 5px;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div data-aos="fade-right" data-aos-duration="800" data-aos-once="true" class="site-heading" style="padding-bottom: 80px;">
+                        <h1 class="page-title">Publicaciones</h1><img class="d-none" src= "{% static "assets/img/logolila.png" %}" style="margin-top: 90px;height: 100px;"></div>
+                </div>
+            </div>
+        </div>
+</header>
+<hr style="background-color: rgb(1,6,102);height: 25px;margin-top: 0px;">
+<div class="container">
+    <div class="row">
+        <div class="row">
+        
+        {% for publicacion in publicaciones %}
+            <div data-aos="fade-up" data-aos-once="true" class="card border-success mb-3 mt-3 ml-3 mr-3" style="width: 22rem; height: 30rem;">
+        	  <a href="{{publicacion.get_absolute_url}}">
+        	  	<div class="card-header">{{publicacion.titulo}}</div>
+        	  </a>
+			  
+			  <div class="card-body text-success">
+			    <h5 class="card-title" >{{publicacion.fechaHoraPublicacion}}</h5>
+			    <p class="card-text">{{publicacion.texto| safe | striptags | truncatewords:10  | urlize  }}</p>
+			  </div>
+			  {%if user.is_authenticated%}
+    			  <a href="{{ publicacion.get_absolute_url }}editar/ ">
+    			 	 <div class="card-footer bg-transparent border-success">Editar</div>
+    			  </a>
+    			  <a href="{{publicacion.get_absolute_url}}borrar/ ">
+			  	      <div class="card-footer bg-transparent border-success text-danger">Eliminar</div>
+    			  </a>
+			  {%endif%}
+			 </div>
+        {% endfor %}
+        
+    </div> 
+    </div>
+</div>
+<hr>
+{%endblock%}
+
+
+
+
+
+
+<!-- 
+-->

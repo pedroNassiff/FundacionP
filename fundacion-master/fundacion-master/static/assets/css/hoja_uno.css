@@ -1,0 +1,41 @@
+body {
+  font-size: 20px;
+  color: #212529;
+  font-family: Lora,Times New Roman,serif;
+}
+
+
+
+a:focus, a:hover {
+  color: #d7261b;
+}
+
+a:focus, a:hover {
+  color: #77ec02;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: rgb(170,114,255)!important;
+  border-color: #00657b!important;
+}
+
+
+
+
+
+
+#hola {
+  max-width: 320px;
+  width: 90%;
+  background-color: #1e2833;
+  padding: 40px;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+}
+

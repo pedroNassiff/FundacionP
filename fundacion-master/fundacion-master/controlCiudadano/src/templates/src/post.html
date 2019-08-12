@@ -1,0 +1,36 @@
+{%extends 'src/base.html'%}
+
+{%block title%}{{ p.titulo }}{%endblock%}
+
+{%block content%}
+    <header class="masthead" style="background-color: rgb(124,58,180);margin-bottom: 5px;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="post-heading" style="padding-bottom: 80px;">
+                        <h1 class="post-title" >{{ p.titulo }}</h1>
+                        <h2 class="post-subheading">{{ p.fechaHoraPublicacion }}</h2>
+                        <span class="post-meta">Publicado por &nbsp;<a href="{% url 'index' %}">Practica Ciudadana</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr style="background-color: rgb(124,58,180);height: 25px;margin-top: 0px;">
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <!--<p>{{ p.texto |linebreaksbr }}</p>-->
+                    <p>{{ p.texto | safe | linebreaksbr }}</p>
+
+                    {% if image_url %}
+                         <a href="{{image_url}}"><img src="{{resized_url}}" alt="" class="img-thumbnail" ></a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </article>
+    <hr>
+{%endblock%}

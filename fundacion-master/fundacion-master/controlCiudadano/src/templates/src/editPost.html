@@ -1,0 +1,60 @@
+<!--NO SE USA MaS ESTO, ahora se edita en createPost.html-->
+{%extends 'src/base.html'%}
+{% load crispy_forms_tags %}
+{%block title%}Editar Publicacion{%endblock%}
+{%block content%}
+    <header class="masthead" style="background-color: rgb(117,49,219);margin-bottom: 5px;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="site-heading" style="padding-bottom: 80px;">
+                        <h1 class="page-title">Editar Articulo: </h1>
+                        <h2>{{ p.titulo }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr style="background-color: rgb(117,49,219);height: 25px;margin-top: 0px;">
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-10 col-lg-8 mx-auto">-->
+                <!--<form method="POST">-->
+                <!--{%csrf_token%}-->
+                <!--<div class="form-group floating-label-form-group controls">-->
+                    <!--{{ form.titulo.errors }}-->
+                    <!--<label for="{{ form.titulo.id_for_label }}">Your message:</label>-->
+                    <!--{{ form.titulo }}-->
+                <!--</div>-->
+                <!--<div class="form-group floating-label-form-group controls">-->
+                    <!--{{ form.texto.errors }}-->
+                    <!--<label for="{{ form.texto.id_for_label }}">Your message:</label>-->
+                    <!--{{ form.texto }}-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<button class="btn btn-primary" type="submit" id="sendMessageButton" style="background-color: rgb(58,6,102);">ENVIAR</button>-->
+                <!--</div>-->
+
+                 <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <div class="card card-formAulas mx-auto mt-12">
+        <div class="container">
+            <div class="card-body">
+            	<form method="POST" enctype="multipart/form-data">
+            	{%csrf_token%}
+                {{ form|crispy}}
+                <div class="form-group">
+                    <div class="form-group"><button class="btn btn-primary" type="submit" id="sendMessageButton" style="background-color: rgb(58,6,102);">ENVIAR</button></div>
+                </div>
+       			 </form>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+{%endblock%}
